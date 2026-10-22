@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .container {
+            height: 100vh;
+            background-color: black;
+            display: flex;
+             flex-direction: column;
+            align-items: center;
+             justify-content: center;
+            gap: 150px;
+        }
+        .barra {
+            width: 300px;
+            height: 50px;
+            background-color: white;
+            border-radius: 25px;
+        }
+        .gota {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            animation: pingue-pongue 2s infinite ease-in-out;
+        }
+        @keyframes pingue-pongue {
+            0%, 100% {
+                transform: translateY(-200px);
+            }
+            50% {
+                transform: translateY(200px);
+            }
+        }
+    </style>
+<body>
+    <div class="container">
+        <div class="barra topo"></div>
+        <div class="gota"></div>
+        <div class="barra fundo"></div>
+    </div>
+    
+</body>
+</html>
