@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>B35 - Fractal de Sierpinski</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    .painel {
+      margin-bottom: 15px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    /* O canvas com borda para enxergarmos a área útil */
+    canvas {
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+  </style>
 </head>
 <body>
-    <script src="script.js"></script>
+
+  <div class="painel">
+    <label for="niveis">Iterações (0 a 6):</label>
+    <input type="number" id="niveis" value="0" min="0" max="6">
+    <button id="btnDesenhar">Desenhar</button>
+  </div>
+
+  <!-- Dimensões fixas via atributos HTML, NUNCA via CSS -->
+  <canvas id="meuCanvas" width="500" height="500"></canvas>
+
+  <script src="script.js"></script>
 </body>
 </html>
