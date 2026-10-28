@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #1a202c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* 1. O Palco: precisa de position: relative e da variável inicial */
+.comparador {
+  position: relative;
+  width: 700px;
+  height: 440px;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  --posicao: 50%; /* Posição onde a barra começa */
+}
+
+/* 2. As Imagens: ocupam 100% da área do palco */
+.comparador img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none; /* Impede que o clique seja bloqueado pela imagem */
+}
+
+/* Imagem de baixo (Antes) */
+.comparador img:first-of-type {
+  z-index: 1;
+}
+
+/* Imagem de cima (Depois) - cortada a partir da esquerda até a variável */
+.comparador img:last-of-type {
+  z-index: 2;
+  clip-path: inset(0 0 0 var(--posicao));
+}
+
+/* 3. O Divisor: usa o ficheiro splitter.svg no ::after */
+.comparador::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--posicao);
+  width: 44px; /* Largura suficiente para o círculo do splitter */
+  background-image: url('splitter.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translateX(-50%); /* Centra o eixo do splitter na linha de corte */
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 4. O Input invisível por cima de TUDO */
+.comparador input[type="range"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;           /* ESSENCIAL: esconde a barra azul feia */
+  cursor: ew-resize;    /* Mostra o cursor de arrasto horizontal ↔ */
+  z-index: 10;          /* Fica no topo para receber o clique e arrasto */
+  margin: 0;
+}
