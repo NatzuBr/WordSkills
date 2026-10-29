@@ -205,3 +205,87 @@ h1 {
   color: #ffffff;
   font-weight: 600;
 }
+
+/* ========================================================
+   REPRODUTOR DE SLIDESHOW (Atividade 10)
+   ======================================================== */
+.slideshow-player {
+  position: fixed;
+  inset: 0;
+  background-color: #000000;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Barra superior com botões de fechar e tela cheia */
+.player-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  z-index: 910;
+}
+
+.player-controls button {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease;
+}
+
+.player-controls button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Palco central do slide */
+.slide-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90vw;
+  max-height: 75vh;
+}
+
+.slide-content img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.slide-caption {
+  margin-top: 16px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+/* Barra inferior com contador e modo */
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  color: #a0aec0;
+  font-size: 0.9rem;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

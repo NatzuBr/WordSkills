@@ -1,0 +1,13 @@
+/* ========================================================
+   TEMA A: Exibição padrão sem animações
+   ======================================================== */
+.slide-stage.theme-a .slide-content img {
+  transform: none;
+  opacity: 1;
+}
+
+.slide-stage.theme-a .slide-caption {
+  transform: none;
+  opacity: 1;
+}
+
